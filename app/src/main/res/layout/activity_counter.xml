@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="br.com.mrlmoro.simplecounterapp.CounterViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CounterActivity">
+
+        <TextView
+            android:id="@+id/tv_display"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@{vm.display}"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toTopOf="@+id/bt_increase"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2000" />
+
+        <Button
+            android:id="@+id/bt_increase"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@string/increase"
+            android:textSize="40sp"
+            android:onClick="@{() -> vm.onClickIncrease()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bt_decrease"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_display" />
+
+        <Button
+            android:id="@+id/bt_decrease"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="-"
+            android:textSize="40sp"
+            android:onClick="@{() -> vm.onClickDecrease()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/bt_increase"
+            app:layout_constraintTop_toBottomOf="@+id/tv_display" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
